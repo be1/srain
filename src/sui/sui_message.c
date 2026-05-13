@@ -465,7 +465,7 @@ static SuiNotification* sui_message_real_new_notification(SuiMessage *self){
     str_assign(&notif->id, "sui-message");
     str_assign(&notif->icon, PACKAGE_APPID);
     notif->title = title; // No need to copy
-    str_assign(&notif->body, self->ctx->rendered_content);
+    str_assign(&notif->body, self->ctx->content); // Raw message (fixes #263)
 
     return notif;
 }
